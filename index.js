@@ -55,8 +55,7 @@ app.all('/player/growid/login/validate', (req, res) => {
 });
 
 app.get('/', function (req, res) {
-   
-    res.render(__dirname +'/public/html/dashboard.ejs');
+   res.send('Hello Memek');
 });
 
 app.listen(5000, function () {
