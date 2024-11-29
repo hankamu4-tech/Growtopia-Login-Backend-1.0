@@ -29,7 +29,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(rateLimiter({ windowMs: 15 * 60 * 1000, max: 100, headers: true }));
 
-app.all('/player/login/dashboard', function (req, res) {
+app.all('https://eclipse-backend-test.vercel.app/player/login/dashboard', function (req, res) {
     const tData = {};
     try {
         const uData = JSON.stringify(req.body).split('"')[1].split('\\n'); const uName = uData[0].split('|'); const uPass = uData[1].split('|');
@@ -40,7 +40,7 @@ app.all('/player/login/dashboard', function (req, res) {
     res.render(__dirname + '/public/html/dashboard.ejs', { data: tData });
 });
 
-app.all('/player/growid/login/validate', (req, res) => {
+app.all('https://eclipse-backend-test.vercel.app/player/growid/login/validate', (req, res) => {
     const _token = req.body._token;
     const growId = req.body.growId;
     const password = req.body.password;
