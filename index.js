@@ -53,7 +53,16 @@ app.all('/player/growid/login/validate', (req, res) => {
         `{"status":"success","message":"Account Validated.","token":"${token}","url":"","accountType":"growtopia"}`,
     );
 });
-
+app.all('/player/growid/checktoken', (req, res) => {
+    const { refreshToken } = req.body;
+    res.json({
+        status: 'success',
+        message: 'Account Validated.',
+        token: refreshToken,
+        url: '',
+        accountType: 'growtopia',
+    });
+});
 app.get('/', function (req, res) {
    res.send('Hello Memek');
 });
