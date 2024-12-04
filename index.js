@@ -28,7 +28,18 @@ app.use(function (req, res, next) {
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(rateLimiter({ windowMs: 15 * 60 * 1000, max: 100, headers: true }));
-
+app.all('/player/register', function(req, res) {
+    const token = Buffer.from(
+        `_token=&growId=&password=`,
+    ).toString('base64');
+    res.json({
+        status: 'success',
+        message: 'Account Validated.',
+        token: token,
+        url: '',
+        accountType: 'growtopia',
+    });
+}
 app.all('/player/login/dashboard', function (req, res) {
     const tData = {};
     try {
