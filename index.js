@@ -39,7 +39,7 @@ app.all('/player/register', function(req, res) {
         url: '',
         accountType: 'growtopia',
     });
-}
+});
 app.all('/player/login/dashboard', function (req, res) {
     const tData = {};
     try {
