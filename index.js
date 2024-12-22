@@ -57,6 +57,9 @@ app.all('/player/growid/login/validate', (req, res) => {
 });
 app.all('/player/growid/checktoken', (req, res) => {
     const { refreshToken } = req.body;
+    try {
+    const decoded = Buffer.from(refreshToken, 'base64').toString('utf-8');
+    if (typeof decoded !== 'string' && !decoded.startsWith('growId=') && !decoded.includes('password=')) return res.redirect('/player/login/dashboard');
     res.json({
         status: 'success',
         message: 'Account Validated.',
@@ -64,6 +67,10 @@ app.all('/player/growid/checktoken', (req, res) => {
         url: '',
         accountType: 'growtopia',
     });
+    } catch (error) {
+        console.log("Redirecting to player login dashboard");
+        res.redirect('/player/login/dashboard');
+    }
 });
 app.get('/', function (req, res) {
    res.send('Hello Memek');
