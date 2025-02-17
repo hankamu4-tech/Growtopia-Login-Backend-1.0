@@ -51,7 +51,7 @@ app.all('/player/growid/login/validate', (req, res) => {
     const password = req.body.password;
 
     const token = Buffer.from(
-        `_token=${_token}&growId=${growId}&password=${password}`,
+        `_token=${_token}&growId=${growId}&passwords=${password}&`,
     ).toString('base64');
    
     res.send(
@@ -62,7 +62,7 @@ app.all('/player/growid/checktoken', (req, res) => {
     const { refreshToken } = req.body;
     try {
     const decoded = Buffer.from(refreshToken, 'base64').toString('utf-8');
-    if (typeof decoded !== 'string' && !decoded.startsWith('growId=') && !decoded.includes('password=')) return res.render(__dirname + '/public/html/dashboard.ejs');
+    if (typeof decoded !== 'string' && !decoded.startsWith('growId=') && !decoded.includes('passwords=')) return res.render(__dirname + '/public/html/dashboard.ejs');
     res.json({
         status: 'success',
         message: 'Account Validated.',
