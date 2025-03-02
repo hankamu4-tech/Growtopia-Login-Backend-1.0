@@ -27,7 +27,7 @@ app.use(function (req, res, next) {
 });
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
-//app.use(rateLimiter({ windowMs: 15 * 60 * 1000, max: 100, headers: true }));
+app.use(rateLimiter({ windowMs: 5 * 60 * 1000, max: 800, headers: true }));
 app.all('/favicon.ico', function(req, res) {
     
 });
