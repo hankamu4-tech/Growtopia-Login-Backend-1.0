@@ -55,7 +55,7 @@ app.all('/player/growid/login/validate', (req, res) => {
     ).toString('base64');
    
     res.send(
-        `{"status":"success","message":"Account Validated.","token":"${token}","url":"","accountType":"growtopia"}`,
+        `{"status":"success","message":"Account Validated.","token":"${token}","url":"","accountType":"growtopia", "accountAge": 2}`,
     );
 });
 app.all('/player/growid/checktoken', (req, res) => {
@@ -69,6 +69,7 @@ app.all('/player/growid/checktoken', (req, res) => {
         token: refreshToken,
         url: '',
         accountType: 'growtopia',
+        accountAge: 2
     });
     } catch (error) {
         console.log("Redirecting to player login dashboard");
