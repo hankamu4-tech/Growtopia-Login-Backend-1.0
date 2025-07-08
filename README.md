@@ -1,6 +1,6 @@
 # GrowtopiaLogin-Backend
 
-Hello growtopians!, i'm tejo, now i share a growtopia login backend
+Hello growtopians!, i'm tejo, now i share a growtopia login backend. 
 This is a remake version of gtlogin backend by yoru akio and realllboyy
 
 # Changelogs 1.0
@@ -24,7 +24,7 @@ Tutorial:
   
 ## Contact
 
-You can contact the real creator [@yoruakio](https://t.me/yoruakio)
+You can contact the real creator [@yoruakio](https://t.me/yoruakio) 
 Or you can contact me [@gtxttt](https://t.me/gtxttt)
 
 ## License
@@ -33,6 +33,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Credits
 
-Growtopia login backend main base by : [@YoruAkio](https://github.com/YoruAkio)
-Code help from : [@GTPSHax/Oxygenbro](https://github.com/GTPSHAX)
-Main character ^⁠_⁠^ (Publish & Code) : [@GTX-T/Tejo](https://github.com/GTX-T)
+- Growtopia login backend main base by : [@YoruAkio](https://github.com/YoruAkio)
+- Code help from : [@GTPSHax/Oxygenbro](https://github.com/GTPSHAX)
+- Main character ^⁠_⁠^ (Publish & Code) : [@GTX-T/Tejo](https://github.com/GTX-T)
