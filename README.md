@@ -14,7 +14,7 @@ This is a remake version of gtlogin backend by yoru akio and realllboyy
 
 Tutorial:
 
-[![Tutorial Videos]([https://files.catbox.moe/z2v85a.jpg])(https://github.com/GTX-T/Growtopia-Login-Backend-1.0)
+[([https://files.catbox.moe/z2v85a.jpg])(https://github.com/GTX-T/Growtopia-Login-Backend-1.0)]
 
 ## Path Information
 
