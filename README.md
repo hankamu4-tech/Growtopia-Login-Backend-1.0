@@ -14,7 +14,7 @@ This is a remake version of gtlogin backend by yoru akio and realllboyy
 
 Tutorial:
 
-- Kaming sun
+- [Click Here To See Tutorial](https://youtu.be/_-aEFImBaqE?si=ZqqziHb-U6ChwRAd)
 
 ## Path Information
 
