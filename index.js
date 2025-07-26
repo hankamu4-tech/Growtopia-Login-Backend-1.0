@@ -62,7 +62,7 @@ app.all('/player/growid/checktoken', (req, res) => {
     res.send(`{"status":"success","message":"Account Validated.","token":"${req.body.refreshToken}","url":"","accountType":"growtopia"}`,);
 });
 app.get('/', function (req, res) {
-   res.send('Hello Memek');
+   res.send('Neptune Project Login Url');
 });
 
 app.listen(5000, function () {
