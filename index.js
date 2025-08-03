@@ -3,6 +3,9 @@ const app = express();
 const bodyParser = require('body-parser');
 const rateLimiter = require('express-rate-limit');
 const compression = require('compression');
+const fs = require('fs');
+const path = require('path');
+const whitelist = JSON.parse(fs.readFileSync('wl.json', 'utf8'));
 
 app.use(compression({
     level: 5,
@@ -25,6 +28,15 @@ app.use(function (req, res, next) {
     console.log(`[${new Date().toLocaleString()}] ${req.method} ${req.url} - ${res.statusCode}`);
     next();
 });
+
+function getClientIP(req) {
+  return (
+    req.headers['x-forwarded-for']?.split(',')[0] ||
+    req.connection.remoteAddress.replace('::ffff:', '') ||
+    'UNKNOWN'
+  );
+};
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(rateLimiter({ windowMs: 5 * 60 * 1000, max: 800, headers: true }));
@@ -41,8 +53,10 @@ app.all('/player/login/dashboard', function (req, res) {
         for (let i = 0; i < uData.length - 1; i++) { const d = uData[i].split('|'); tData[d[0]] = d[1]; }
         if (uName[1] && uPass[1]) { res.redirect('/player/growid/login/validate'); }
     } catch (why) { console.log(`Warning: ${why}`); }
-
-    res.render(__dirname + '/public/html/dashboard.ejs', {data: tData});
+    const ip = getClientIP(req);
+    const whitelist = JSON.parse(fs.readFileSync('wl.json', 'utf8'));
+    const serverName = whitelist[ip] || "Growtopia Login Backend";
+    res.render(__dirname + 'public/html/dashboard.ejs', { serverName, data: tData });
 });
 
 app.all('/player/growid/login/validate', (req, res) => {
