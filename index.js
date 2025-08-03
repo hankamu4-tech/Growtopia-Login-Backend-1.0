@@ -5,6 +5,7 @@ const rateLimiter = require('express-rate-limit');
 const compression = require('compression');
 const fs = require('fs');
 const path = require('path');
+const dashboardApp = express();
 const whitelist = JSON.parse(fs.readFileSync('wl.json', 'utf8'));
 
 app.use(compression({
@@ -58,7 +59,8 @@ app.all('/player/login/dashboard', function (req, res) {
     const serverName = whitelist[ip] || "Growtopia Login Backend";
     res.render(__dirname + 'public/html/dashboard.ejs', { serverName, data: tData });
 });
-
+const serverData = require('./server_data');
+app.use('/player/login/dashboard', serverData);
 app.all('/player/growid/login/validate', (req, res) => {
     const _token = req.body._token;
     const growId = req.body.growId;
@@ -75,6 +77,7 @@ app.all('/player/growid/login/validate', (req, res) => {
 app.all('/player/growid/checktoken', (req, res) => {
     res.send(`{"status":"success","message":"Account Validated.","token":"${req.body.refreshToken}","url":"","accountType":"growtopia"}`,);
 });
+
 app.get('/', function (req, res) {
    res.send('Neptune Project Login Url');
 });
